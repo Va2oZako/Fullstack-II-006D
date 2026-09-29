@@ -1,0 +1,42 @@
+import { useState, useEffect } from 'react'
+
+function Producto({ nombre, precio }) {
+    const [stock, setStock] = useState(() => {
+        const stockGuardado = localStorage.getItem(nombre)
+        return stockGuardado !== null
+            ? Number(stockGuardado): 5
+    })
+
+    useEffect(() => {
+        localStorage.setItem(nombre, stock)
+    }, [stock, nombre])
+
+    const disminuirStock = () => {
+        if (stock > 0) {
+            setStock(stock - 1)
+        }
+    }
+
+    return (
+        <div className="card h-100">
+            <div className="card-body">
+                <h5 className="card-title">{nombre}</h5>
+                <p className="card-text">Precio: ${precio}</p>
+                <p>Stock disponible: {stock}</p>
+                <button
+                    className="btn btn-danger me-2"
+                    onClick={disminuirStock}
+                >
+                    -
+                </button>
+                <button
+                    className="btn btn-success"
+                    onClick={() => setStock(stock + 1)}
+                >
+                    +
+                </button>
+            </div>
+        </div>
+    )
+}
+export default Producto
