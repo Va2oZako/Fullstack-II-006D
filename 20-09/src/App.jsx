@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Navbar from './components/Navbar'
 import Inicio from './pages/Inicio'
 import Productos from './pages/Productos'
 import Login from './pages/Login'
@@ -7,6 +8,9 @@ import Login from './pages/Login'
 function App() {
   return (
     <BrowserRouter>
+
+      <Navbar/>
+
       <Routes>
         <Route
           path="/"
