@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Inicio from './pages/Inicio'
 import Productos from './pages/Productos'
 import Login from './pages/Login'
+import DetalleProducto from './pages/DetalleProducto'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar/>
 
       <Routes>
+
         <Route
           path="/"
           element={<Inicio />}
@@ -20,6 +22,11 @@ function App() {
         <Route
           path="/productos"
           element={<Productos />}
+        />
+
+        <Route 
+          path="/producto/:id"
+          element={<DetalleProducto />}
         />
 
         <Route

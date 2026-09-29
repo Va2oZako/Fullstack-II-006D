@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-function Producto({ nombre, precio }) {
+function Producto({ id, nombre, precio }) {
     const [stock, setStock] = useState(() => {
         const stockGuardado = localStorage.getItem(nombre)
         return stockGuardado !== null
-            ? Number(stockGuardado): 5
+            ? Number(stockGuardado) : 5
     })
 
     useEffect(() => {
@@ -35,6 +36,13 @@ function Producto({ nombre, precio }) {
                 >
                     +
                 </button>
+
+                <Link
+                    to={`/producto/${id}`}
+                    className="btn btn-primary ms-2"
+                >
+                    Ver detalle
+                </Link>
             </div>
         </div>
     )
