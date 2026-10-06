@@ -1,8 +1,7 @@
-function Saludo(){
+function Saludo({ nombre }){
     return(
         <div>
-            <h2>Hola alumnos</h2>
-            <p>Este es nuestro primer componente</p>
+            <h2>Hola {nombre}</h2>
         </div>
     )
 }
